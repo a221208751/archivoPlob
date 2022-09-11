@@ -15,20 +15,12 @@ public class PracticaConListasObregon {
         System.out.println("Ingrese la palabra a buscar:");
         Scanner sc = new Scanner(System.in);
         String cadenaUsuario = sc.nextLine();
-        Pattern pat = Pattern.compile(cadenaUsuario);
-        Matcher mat = pat.matcher(divinaComedia);
-        if (mat.matches()) {
             int times = 0;
-            StringTokenizer tok = new StringTokenizer(divinaComedia);
-            while(tok.hasMoreTokens()) {
-                if(tok.nextElement()==cadenaUsuario) {
+            for(int i = 0; i < palabras.length; i++){
+                if(palabras[i] == cadenaUsuario){
                     times++;
                 }
             }
-            System.out.println("Su palabra se repite " + times);
-        } else {
-            System.out.println("Su palabra no se repite ni una sola vez");
+            System.out.println("Su palabra se repite " + times + " veces");
         }
     }
-    
-}
