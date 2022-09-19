@@ -15,10 +15,10 @@ public class PracticaConListasObregon {
         System.out.println("Ingrese la palabra a buscar:");
         Scanner sc = new Scanner(System.in);
         String cadenaUsuario = sc.nextLine();
-            int times = 0;
-            for(int i = 0; i < palabras.length; i++){
-                if(palabras[i] == cadenaUsuario){
-                    times++;
+        int times = 0;
+        for(int i = 0; i < palabras.length; i++){
+            if(cadenaUsuario.equals(palabras[i])){
+                    times = times + 1;
                 }
             }
             System.out.println("Su palabra se repite " + times + " veces");
