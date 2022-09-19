@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class PracticaConListasObregon {
     public static void main(String[] args) {
         archivo a = new archivo();
