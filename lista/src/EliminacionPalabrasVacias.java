@@ -13,7 +13,7 @@ public class EliminacionPalabrasVacias {
         String [] y = x.split(" ");
         int times = 0;
         for(int i = 0; i < palabrasVacias.length; i++){
-            for(int o = 0; o < x.length; o++){
+            for(int o = 0; o < x.length(); o++){
                 if(y[o]!=palabrasVacias[i]){
                     times = times + 1;
                 }
