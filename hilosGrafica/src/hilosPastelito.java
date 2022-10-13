@@ -1,27 +1,45 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.geom.*;
-public class hilosPastelito extends JPanel {
+public class hilosPastelito extends JPanel implements Runnable {
+    int rango1 = 0;
+    int rango2 = 0;
+    int rango3 = 0;
+    int rango4 = 0;
     private int total;
     private int ang1;
     private int ang2;
     private int ang3;
     private int ang4;
-    public hilosPastelito(int rango1, int rango2, int rango3,int rango4){
-        total = rango1 + rango2 + rango3 + rango4;
-        ang1 = rango1 * 360 / total;
-        ang2 = rango2 * 360 / total;
-        ang3 = rango3 * 360 / total;
-        ang4 = (360 - ang1 - ang2 - ang3);
-        System.out.println("--ACTUALIZACIÓN--");
-        System.out.println("Departamento 1: " + ang1);
-        System.out.println("Departamento 2: " + ang2);
-        System.out.println("Departamento 3: " + ang3);
-        System.out.println("Departamento 4: " + ang4);
-        System.out.println();
+    public hilosPastelito(){
+        Thread t = new Thread(this);
+        t.start();
     }
-    public hilosPastelito() {
-
+    @Override
+    public void run() {
+        do {
+            rango1 = (int) Math.floor(Math.random() * (1500 - 100 + 1) + 100);
+            rango2 = (int) Math.floor(Math.random() * (1500 - 100 + 1) + 100);
+            rango3 = (int) Math.floor(Math.random() * (1500 - 100 + 1) + 100);
+            rango4 = (int) Math.floor(Math.random() * (1500 - 100 + 1) + 100);
+            total = rango1 + rango2 + rango3 + rango4;
+            ang1 = rango1 * 360 / total;
+            ang2 = rango2 * 360 / total;
+            ang3 = rango3 * 360 / total;
+            ang4 = (360 - ang1 - ang2 - ang3);
+            System.out.println("--ACTUALIZACIÓN--");
+            System.out.println("Departamento 1: " + ang1);
+            System.out.println("Departamento 2: " + ang2);
+            System.out.println("Departamento 3: " + ang3);
+            System.out.println("Departamento 4: " + ang4);
+            System.out.println();
+            this.repaint();
+            try {
+                Thread.sleep(5000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        } while (true);
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -63,4 +81,6 @@ public class hilosPastelito extends JPanel {
         g2.fill(arco);
 
     }
+
+
 }
